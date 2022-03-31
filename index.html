@@ -12,10 +12,19 @@
 </head>
 <body>
 
-    <h1>Juego de Loteria Mexicana</h1>
+    <div id="cabeza" class="principal">
+        <img class="img-fluid img_tab" src="img/inicio1.jpg" alt="">
+        <img class="img-fluid img_tab" src="img/inicio2.jpg" alt="">
+        <img class="img-fluid img_tab" src="img/inicio3.jpg" alt="">
+    </div>
+    
+    <h1 id="titulo">Juego de la Loteria Mexicana</h1>
+
+    <p id="reseña">El juego de la lotería, ampliamente difundido en México, es un juego de azar que consta de un mazo de 54 o 56 cartas y un número indefinido de tarjetas, durante el juego, hay una persona que se dedica a cantar las cartas, que a menudo se conoce como “el gritón“ y acompaña cada carta con una frase o refrán que hace referencia a la imagen.
+    </p>
 
     <div class="container-fluid">
-    <button id="btn1" class="btn btn-outline-dark" onclick="crearTableros(1,54)">Cargar Tableros</button>
+    <button id="btn1" class="btn btn-outline-success" onclick="crearTableros(1,54)">Da Click para Cargar Tableros</button>
     <h2 id="Mensaje" class="msj">Selecciona uno de los tableros</h2>
     </div>
     
@@ -23,7 +32,7 @@
 
     <div id="tableros" class="container-fluid">
         <div class="row ">
-            <div id="tab1" class="col-md-4 col-sm-4 red espacio btn btn-primary" onclick="selecTablero1()" ><h3 class="titulos">Tablero_1</h3>
+            <div id="tab1" class="col-md-4 col-sm-4 red espacio btn btn-warning" name="alex" onclick="selecTablero1()" ><h3 class="titulos">Tablero_1</h3>
                 <div class="row">
                     <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab ">
                     <img  id="img_t1_1" src="img/tab1.jpg" class="img-fluid img_tab"  alt="Tab1"></div>
@@ -59,7 +68,7 @@
                     <img  id="img_t1_16" src="img/tab1.jpg" class="img-fluid img_tab"  alt="Tab1"></div>
                 </div>
             </div>
-            <div id="tab2" class="col-md-4 col-sm-4 blue espacio btn btn-primary" onclick="selecTablero2()"><h3 class="titulos">Tablero_2</h3>
+            <div id="tab2" class="col-md-4 col-sm-4 blue espacio btn btn-warning" onclick="selecTablero2()"><h3 class="titulos">Tablero_2</h3>
                 <div class="row">
                     <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab">
                     <img  id="img_t2_1" src="img/tab2.jpg" class="img-fluid img_tab"  alt="Tab1"></div>
@@ -95,7 +104,7 @@
                     <img  id="img_t2_16" src="img/tab2.jpg" class="img-fluid img_tab"  alt="Tab1"></div>
                 </div>
             </div>
-            <div id="tab3" class="col-md-4 col-sm-4 green espacio btn btn-primary" onclick="selecTablero3()" ><h3 class="titulos">Tablero_3</h3>
+            <div id="tab3" class="col-md-4 col-sm-4 green espacio btn btn-warning" onclick="selecTablero3()" ><h3 class="titulos">Tablero_3</h3>
                 <div class="row">
                     <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab">
                     <img  id="img_t3_1" src="img/tab3.jpg" class="img-fluid img_tab"  alt="Tab1"></div>
@@ -138,40 +147,40 @@
 
     <div id="juego" class="container-fluid bannerOculto">
         <div class="row ">
-            <div id="miTablero" class="col-md-4 col-sm-4 red espacio " ><h3 class="titulos">Mi Tablero</h3>
+            <div id="miTablero" class="col-md-4 col-sm-4 black espacio " ><h3 class="titulos">Mi Tablero</h3>
                 <div class="row">
                     <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary ">
-                        <img  id="miTab_1" src="img/tab1..png" class="img-fluid img_tab"  alt="mitab"></div>
+                        <img  id="miTab_1" src="img/tab1..png" class="img-fluid img_tab" name="miTab_1" onclick="val1()" alt="mitab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_2" src="img/tab1..png" class="img-fluid img_tab"  alt="mitab"></div>
+                        <img  id="miTab_2" src="img/tab1..png" class="img-fluid img_tab" name="miTab_2" onclick="val2()" alt="mitab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_3" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_3" src="img/tab1..png" class="img-fluid img_tab" name="miTab_3" onclick="val3()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_4" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_4" src="img/tab1..png" class="img-fluid img_tab" name="miTab_4" onclick="val4()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_5" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_5" src="img/tab1..png" class="img-fluid img_tab" name="miTab_5" onclick="val5()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_6" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_6" src="img/tab1..png" class="img-fluid img_tab" name="miTab_6" onclick="val6()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_7" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_7" src="img/tab1..png" class="img-fluid img_tab" name="miTab_7" onclick="val7()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_8" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_8" src="img/tab1..png" class="img-fluid img_tab" name="miTab_8" onclick="val8()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_9" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_9" src="img/tab1..png" class="img-fluid img_tab" name="miTab_9" onclick="val9()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_10" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_10" src="img/tab1..png" class="img-fluid img_tab" name="miTab_10" onclick="val10()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_11" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_11" src="img/tab1..png" class="img-fluid img_tab" name="miTab_11" onclick="val11()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_12" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>    
+                        <img  id="miTab_12" src="img/tab1..png" class="img-fluid img_tab" name="miTab_12" onclick="val12()" alt="miTab"></div>    
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_13" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_13" src="img/tab1..png" class="img-fluid img_tab" name="miTab_13" onclick="val13()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_14" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_14" src="img/tab1..png" class="img-fluid img_tab" name="miTab_14" onclick="val14()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_15" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_15" src="img/tab1..png" class="img-fluid img_tab" name="miTab_15" onclick="val15()" alt="miTab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab btn btn-primary">
-                        <img  id="miTab_16" src="img/tab1..png" class="img-fluid img_tab"  alt="miTab"></div>
+                        <img  id="miTab_16" src="img/tab1..png" class="img-fluid img_tab" name="miTab_16" onclick="val16()" alt="miTab"></div>
                 </div>        
             </div>
             <div id="cartas"class="col-md-4 col-sm-4 cartas ">
@@ -180,20 +189,20 @@
                     <img id="mz" src="img/carta.jpg" class="rounded mx-auto d-block img-fluid img_tab" alt="">
                 </div>
                 <div id="out" class="col gray altoCarta  " >
-                    <img id="o" src="img/carta.jpg" class="rounded mx-auto d-block img-fluid img_tab" alt="">
+                    <img id="o" class="rounded mx-auto d-block img-fluid img_tab" alt="">
                 </div>
                 <div id="btns" class="col-12 col-md-12 col-sm-12 ">
-                    <button class="margen btn btn-secondary btn-lg" onclick="barajearMazo(1,54)">Barajear</button>
-                    <button class="margen btn btn-lg btn-primary" onclick="iniciarJuego()">Iniciar Juego</button>
-                    <button class="margen btn btn-lg btn-primary" onclick="detener()">Detener</button>
-                    <button class="margen btn btn-lg btn-primary" onclick="">Limpiar</button>
+                    <button class="margen btn btn-secondary btn-lg" onclick="barajearMazo(1,55)">Barajear Cartas</button>
+                    <button class="margen btn btn-lg  btn-success" onclick="iniciarJuego()">Iniciar Juego</button>
+                    <button class="margen btn btn-lg btn-danger" onclick="detener()">Cancelar</button>
+                    <!-- <button class="margen btn btn-lg btn-primary" onclick="">Limpiar</button> -->
 
                 </div>
                 </div>
             </div>
-            <div id="tabMachine" class="col-md-4 col-sm-4 red espacio" ><h3 class="titulos">Machine</h3>
+            <div id="tabMachine" class="col-md-4 col-sm-4 gray espacio" ><h3 class="titulos">Machine</h3>
                 <div class="row">
-                    <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab ">
+                    <div class="col-3 col-md-3 col-sm-3 grey alto carta_tab ">
                         <img  id="miTab_1" src="img/tab1..png" class="img-fluid img_tab"  alt="mitab"></div>
                         <div class="col-3 col-md-3 col-sm-3 gray alto carta_tab">
                         <img  id="miTab_2" src="img/tab1..png" class="img-fluid img_tab"  alt="mitab"></div>

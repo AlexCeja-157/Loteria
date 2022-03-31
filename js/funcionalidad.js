@@ -6,11 +6,26 @@ let Tablero3 = [];
 
 
 function crearTableros(limInferior, LimSuperior){
-    for(let i = 0; i < 16; i++){
-    Tablero1.push (Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior);
-    Tablero2.push (Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior);
-    Tablero3.push (Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior);
-
+    for(let i = 0; i < 16; ){
+        let random1 = Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior
+        if(!Tablero1.includes(random1)){
+            Tablero1.push(random1);
+            i++
+        }
+    }
+    for(let i = 0; i < 16; ){
+        let random2 = Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior
+        if(!Tablero2.includes(random2)){
+            Tablero2.push(random2);
+            i++
+        }
+    }
+    for(let i = 0; i < 16; ){
+        let random3 = Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior
+        if(!Tablero3.includes(random3)){
+            Tablero3.push(random3);
+            i++
+        }
     }
 
    console.log(Tablero1);
@@ -135,6 +150,7 @@ selector1.className = "btn";
 selector1.className = "btn-primary";
 }
 
+let tabSeleccionado = [];
 
 function selecTablero1() {
     const banner1 = document.getElementById("tableros");
@@ -149,8 +165,14 @@ function selecTablero1() {
     const msj = document.getElementById("Mensaje");
     msj.className = "bannerOculto"
 
+    const title = document.getElementById("titulo");
+    title.className = "bannerOculto"
+
+    const res = document.getElementById("reseña");
+    res.className = "bannerOculto"
+
     let miTab_1 = document.getElementById("miTab_1");
-    miTab_1.src=`img/Cartas lotería/${Tablero1[0]}.jpg`
+    miTab_1.src=`img/Cartas lotería/${Tablero1[0]}.jpg`;
     let miTab_2 = document.getElementById("miTab_2");
     miTab_2.src=`img/Cartas lotería/${Tablero1[1]}.jpg`
     let miTab_3 = document.getElementById("miTab_3");
@@ -182,6 +204,8 @@ function selecTablero1() {
     let miTab_16 = document.getElementById("miTab_16");
     miTab_16.src=`img/Cartas lotería/${Tablero1[15]}.jpg`
 
+    tabSeleccionado = Object.values(Tablero1);
+    console.log(tabSeleccionado);
 }
 
 function selecTablero2() {
@@ -196,6 +220,12 @@ function selecTablero2() {
 
     const msj = document.getElementById("Mensaje");
     msj.className = "bannerOculto"
+
+    const title = document.getElementById("titulo");
+    title.className = "bannerOculto"
+
+    const res = document.getElementById("reseña");
+    res.className = "bannerOculto"
 
     let miTab_1 = document.getElementById("miTab_1");
     miTab_1.src=`img/Cartas lotería/${Tablero2[0]}.jpg`
@@ -230,6 +260,8 @@ function selecTablero2() {
     let miTab_16 = document.getElementById("miTab_16");
     miTab_16.src=`img/Cartas lotería/${Tablero2[15]}.jpg`
 
+    tabSeleccionado = Object.values(Tablero2);
+    console.log(tabSeleccionado);
 }
 
 function selecTablero3() {
@@ -244,6 +276,12 @@ function selecTablero3() {
 
     const msj = document.getElementById("Mensaje");
     msj.className = "bannerOculto"
+
+    const title = document.getElementById("titulo");
+    title.className = "bannerOculto"
+
+    const res = document.getElementById("reseña");
+    res.className = "bannerOculto"
 
     let miTab_1 = document.getElementById("miTab_1");
     miTab_1.src=`img/Cartas lotería/${Tablero3[0]}.jpg`
@@ -278,37 +316,52 @@ function selecTablero3() {
     let miTab_16 = document.getElementById("miTab_16");
     miTab_16.src=`img/Cartas lotería/${Tablero3[15]}.jpg`
 
+    tabSeleccionado = Object.values(Tablero3);
+    console.log(tabSeleccionado);
+
 }
 
-var mazo = [];
+
+let mazo = [];
 
 function barajearMazo(limInferior, LimSuperior){
-    for(let i = 0; i < LimSuperior; i++){
-    mazo.push (Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior);
+
+    for(let i = 0; i < 54; ){
+        let card = Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior
+        if(!mazo.includes(card)){
+            mazo.push (card);
+            i++
+        }
     }
 
     console.log(mazo);
     alert("Cartas Barajeadas, Listos para iniciar")
- }
+}
 
 
 let interval;
 var i = -1;
 var x = 0;
+var y = 0;
 
 function iniciarJuego(){
-    interval = setInterval(temporizador, 2000);        
+    interval = setInterval(temporizador, 4000); 
 }
     
 function temporizador(){
     let carta = document.getElementById("mz");
     carta.src=`img/Cartas lotería/${mazo[x]}.jpg`
+    
+    let out = document.getElementById("o");
+    out.src=`img/carta.jpg`
 
     i = i + 1;
     x = x + 1;
+    y = x - 1;
 
     if(i >= 53){
         clearInterval(interval);
+        alert("Pool de Cartas Terminado")
     }
 
     console.log(i)
@@ -318,6 +371,230 @@ function temporizador(){
 function detener(){
     clearInterval(interval);
 }
+
+
+let contador = [];
+
+function val1(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[0];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_1");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val2(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[1];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_2");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val3(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[2];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_3");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val4(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[3];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_4");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val5(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[4];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_5");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+function val6(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[5];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_6");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val7(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[6];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_7");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+function val8(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[7];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_8");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+function val9(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[8];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_9");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val10(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[9];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_10");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val11(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[10];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_11");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val12(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[11];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_12");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val13(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[12];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_13");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+function val14(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[13];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_14");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+function val15(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[14];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_15");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+function val16(){
+    let num2 = mazo[y]
+    let num = tabSeleccionado[15];
+    
+    if (num === num2){
+        let ok = document.getElementById("miTab_16");
+        ok.className = "img-fluid img_tab ok";
+        contador.push(1)
+        if(contador.length === 16){
+            alert("LOTERIA")
+        }
+    }    
+}
+
+
 
 
 
