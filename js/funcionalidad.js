@@ -1,4 +1,18 @@
 
+//     // Mostrar los tableros de inicio y boton de generar tableros
+
+function mostrarTableros(){
+
+    let tab = document.getElementById("tableros");
+    tab.className = "container-fluid"
+    let b1 = document.getElementById("btn1");
+    b1.className = "btn btn-dark"
+
+    let ini = document.getElementById("inicio");
+    ini.className = "container-fluid msj"
+}
+
+//     // Se generan los tableros aleatoriamente
 
 let Tablero1 = [];
 let Tablero2 = [];
@@ -140,9 +154,21 @@ function crearTableros(limInferior, LimSuperior){
     const msj = document.getElementById("Mensaje");
     msj.className = "verMensaje"
 
+    let selTab1 = document.getElementById("tab1");
+    selTab1.className = "col-md-4 col-sm-4 red espacio btn btn-warning"
+
+    let selTab2 = document.getElementById("tab2");
+    selTab2.className = "col-md-4 col-sm-4 blue espacio btn btn-warning"
+
+    let selTab3 = document.getElementById("tab3");
+    selTab3.className = "col-md-4 col-sm-4 green espacio btn btn-warning"
+
+
  return
 
 }
+
+//     // al seleccionar tablero oculta los primeros tableros y muestra la mesa de juego
 
 function selector(){
 const selector1 = document.getElementById("tab1");
@@ -321,6 +347,7 @@ function selecTablero3() {
 
 }
 
+//     // barajea el mazo de cartas aleatoriamente
 
 let mazo = [];
 
@@ -335,9 +362,17 @@ function barajearMazo(limInferior, LimSuperior){
     }
 
     console.log(mazo);
+
+    let mb = document.getElementById("mz");
+    mb.src=`img/carta.jpg`
+
+    let inhabil = document.getElementById("barajear");
+    inhabil.className = "margen btn btn-secondary btn-lg disabled"
+
     alert("Cartas Barajeadas, Listos para iniciar")
 }
 
+//     // comienza a lanzar las cartas cada 3 segundos aprox.
 
 let interval;
 var i = -1;
@@ -345,7 +380,7 @@ var x = 0;
 var y = 0;
 
 function iniciarJuego(){
-    interval = setInterval(temporizador, 4000); 
+    interval = setInterval(temporizador, 3500); 
 }
     
 function temporizador(){
@@ -361,17 +396,26 @@ function temporizador(){
 
     if(i >= 53){
         clearInterval(interval);
-        alert("Pool de Cartas Terminado")
     }
 
     console.log(i)
     console.log(mazo[i])
 }
 
+//     // Detiene el temporizador
+
 function detener(){
     clearInterval(interval);
 }
 
+//     // reinicia el juego hasta el principio 
+
+function reiniciar(){
+    location.reload(true);
+}
+
+//     // realiza la validacion al dar click en una carta contra la carta activa del mazo y 
+//     // genera un contador de cada carta efectiva para dar un ganador
 
 let contador = [];
 
@@ -384,7 +428,8 @@ function val1(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -398,7 +443,8 @@ function val2(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -412,7 +458,8 @@ function val3(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -426,7 +473,8 @@ function val4(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -440,7 +488,8 @@ function val5(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -453,7 +502,8 @@ function val6(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -467,7 +517,8 @@ function val7(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -480,7 +531,8 @@ function val8(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -493,7 +545,8 @@ function val9(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -507,7 +560,8 @@ function val10(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -521,7 +575,8 @@ function val11(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -535,7 +590,8 @@ function val12(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -549,7 +605,8 @@ function val13(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -563,7 +620,8 @@ function val14(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -576,7 +634,8 @@ function val15(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
@@ -589,10 +648,299 @@ function val16(){
         ok.className = "img-fluid img_tab ok";
         contador.push(1)
         if(contador.length === 16){
-            alert("LOTERIA")
+            alert("LOTERIA, Ganador jugador 1")
+            clearInterval(interval);
         }
     }    
 }
+
+//    // Genera aleatoriamente el tablero del contrincante 
+
+let TabMachine = [];
+
+function cargarMachine(limInferior, LimSuperior){
+    for(let i = 0; i < 16; ){
+        let rand = Math.floor(Math.random() * (LimSuperior - limInferior)) + limInferior
+        if(!TabMachine.includes(rand)){
+            TabMachine.push(rand);
+            i++
+        }
+    }
+
+    console.log(TabMachine);
+ 
+        let TabMach_1 = document.getElementById("TabMach_1");
+        TabMach_1.src=`img/Cartas lotería/${TabMachine[0]}.jpg`
+        let TabMach_2 = document.getElementById("TabMach_2");
+        TabMach_2.src=`img/Cartas lotería/${TabMachine[1]}.jpg`
+        let TabMach_3 = document.getElementById("TabMach_3");
+        TabMach_3.src=`img/Cartas lotería/${TabMachine[2]}.jpg`
+        let TabMach_4 = document.getElementById("TabMach_4");
+        TabMach_4.src=`img/Cartas lotería/${TabMachine[3]}.jpg`
+        let TabMach_5 = document.getElementById("TabMach_5");
+        TabMach_5.src=`img/Cartas lotería/${TabMachine[4]}.jpg`
+        let TabMach_6 = document.getElementById("TabMach_6");
+        TabMach_6.src=`img/Cartas lotería/${TabMachine[5]}.jpg`
+        let TabMach_7 = document.getElementById("TabMach_7");
+        TabMach_7.src=`img/Cartas lotería/${TabMachine[6]}.jpg`
+        let TabMach_8 = document.getElementById("TabMach_8");
+        TabMach_8.src=`img/Cartas lotería/${TabMachine[7]}.jpg`
+        let TabMach_9 = document.getElementById("TabMach_9");
+        TabMach_9.src=`img/Cartas lotería/${TabMachine[8]}.jpg`
+        let TabMach_10 = document.getElementById("TabMach_10");
+        TabMach_10.src=`img/Cartas lotería/${TabMachine[9]}.jpg`
+        let TabMach_11 = document.getElementById("TabMach_11");
+        TabMach_11.src=`img/Cartas lotería/${TabMachine[10]}.jpg`
+        let TabMach_12 = document.getElementById("TabMach_12");
+        TabMach_12.src=`img/Cartas lotería/${TabMachine[11]}.jpg`
+        let TabMach_13 = document.getElementById("TabMach_13");
+        TabMach_13.src=`img/Cartas lotería/${TabMachine[12]}.jpg`
+        let TabMach_14 = document.getElementById("TabMach_14");
+        TabMach_14.src=`img/Cartas lotería/${TabMachine[13]}.jpg`
+        let TabMach_15 = document.getElementById("TabMach_15");
+        TabMach_15.src=`img/Cartas lotería/${TabMachine[14]}.jpg`
+        let TabMach_16 = document.getElementById("TabMach_16");
+        TabMach_16.src=`img/Cartas lotería/${TabMachine[15]}.jpg`
+    
+}
+
+//     // realiza la validacion al dar click en una carta del tablero del contrincante contra la carta activa del mazo y 
+//     // genera un contador del tablero del contrincante para cada carta efectiva para dar un ganador
+
+
+let contador2 = [];
+
+function vall1(){
+    let num3 = mazo[y]
+    let numm = TabMachine[0];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_1");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall2(){
+    let num3 = mazo[y]
+    let numm = TabMachine[1];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_2");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall3(){
+    let num3 = mazo[y]
+    let numm = TabMachine[2];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_3");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall4(){
+    let num3 = mazo[y]
+    let numm = TabMachine[3];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_4");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall5(){
+    let num3 = mazo[y]
+    let numm = TabMachine[4];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_5");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall6(){
+    let num3 = mazo[y]
+    let numm = TabMachine[5];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_6");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall7(){
+    let num3 = mazo[y]
+    let numm = TabMachine[6];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_7");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall8(){
+    let num3 = mazo[y]
+    let numm = TabMachine[7];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_8");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall9(){
+    let num3 = mazo[y]
+    let numm = TabMachine[8];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_9");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall10(){
+    let num3 = mazo[y]
+    let numm = TabMachine[9];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_10");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall11(){
+    let num3 = mazo[y]
+    let numm = TabMachine[10];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_11");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall12(){
+    let num3 = mazo[y]
+    let numm = TabMachine[11];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_12");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall13(){
+    let num3 = mazo[y]
+    let numm = TabMachine[12];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_13");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall14(){
+    let num3 = mazo[y]
+    let numm = TabMachine[13];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_14");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall15(){
+    let num3 = mazo[y]
+    let numm = TabMachine[14];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_15");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+function vall16(){
+    let num3 = mazo[y]
+    let numm = TabMachine[15];
+    
+    if (numm === num3){
+        let ok2 = document.getElementById("TabMach_16");
+        ok2.className = "img-fluid img_tab ok";
+        contador2.push(1)
+        if(contador2.length === 16){
+            alert("LOTERIA, Ganador jugador 2")
+            clearInterval(interval);
+        }
+    }    
+}
+
+
+
+
+
+
+
 
 
 

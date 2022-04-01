@@ -5,7 +5,7 @@
 
     body{
         box-sizing: border-box;
-        margin-top: 30px;
+        margin-top: 20px;
         margin-left: 100px;
         margin-right: 100px;
     }
@@ -18,8 +18,14 @@
 
     p{
         text-align: center;
-        background-color: greenyellow;
-        color: black;
+        background-color: black;
+        color: greenyellow;
+        font-size: 13px;
+    }
+
+    #inicio{
+        width: 200px;
+        height: 200px;
     }
     .red {
         background-color: red;
